@@ -31,3 +31,6 @@ services:
       POSTGRES_PASSWORD: 123
       POSTGRES_USER: places_remember_user
       POSTGRES_DB: places_remember_db
+
+volumes:
+  postgres:
