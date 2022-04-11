@@ -4,14 +4,12 @@ services:
   postgres:
     restart: unless-stopped
     image: postgis/postgis:latest
-    hostname: postgres
+
     volumes:
       - postgres:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: 123
       POSTGRES_USER: places_remember_user
-      POSTGRES_DB: places_remember_db
-      POSTGRES_HOST_AUTH_METHOD: 0.0.0.0
   django:
     build:
       context: ./places_remember_back

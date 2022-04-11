@@ -108,7 +108,7 @@ DATABASES = {
         'NAME': 'places_remember_db',
         'USER': 'places_remember_user',
         'PASSWORD': '123',
-        'HOST': '0.0.0.0',
+        'HOST': 'postgres',
         'PORT': '5432'
     }
 }
