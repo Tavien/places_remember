@@ -6,7 +6,6 @@ services:
     volumes:
       - postgres:/var/lib/postgresql/data
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_PASSWORD: 123
       POSTGRES_USER: places_remember_user
       POSTGRES_DB: places_remember_db
@@ -19,7 +18,6 @@ services:
       - postgres
     volumes:
       - .:/usr/src/places_remember
-    entrypoint: /checkpostgres.sh
     command: >
       sh -c   "
               python3 manage.py makemigrations &&
