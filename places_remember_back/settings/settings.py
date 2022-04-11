@@ -113,7 +113,7 @@ DATABASES = {
         'NAME': 'places_remember_db',
         'USER': 'places_remember_user',
         'PASSWORD': '123',
-        'HOST': env.str("POSTGRES_HOST", default="postgres"),
+        'HOST': os.environ.get('POSTGRES_HOST', 'postgres'),
         'PORT': '5432'
     }
 }
