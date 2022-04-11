@@ -1,10 +1,12 @@
 version: '2.1'
 
 services:
-  db:
+  postgres:
+    restart: unless-stopped
     image: postgis/postgis:latest
+    hostname: postgres
     volumes:
-      - pg_data:/var/lib/postgresql/data
+      - postgres:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: 123
       POSTGRES_USER: places_remember_user
@@ -28,4 +30,4 @@ services:
       - db
 
 volumes:
-  pg_data:
+  postgres:
