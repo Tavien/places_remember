@@ -24,4 +24,4 @@ jobs:
     steps:
       - name: Lint Code Base
       - uses: actions/checkout@v3
-        uses: docker://github/super-linter:v2.1.0
+      - uses: docker://github/super-linter:v2.1.0
