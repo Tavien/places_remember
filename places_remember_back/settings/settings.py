@@ -1,10 +1,6 @@
 import os
 from pathlib import Path
 
-import environ
-
-env = environ.Env()
-env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -113,7 +109,7 @@ DATABASES = {
         'NAME': 'places_remember_db',
         'USER': 'places_remember_user',
         'PASSWORD': '123',
-        'HOST': os.environ.get('POSTGRES_HOST', 'postgres'),
+        'HOST': 'postgres',
         'PORT': '5432'
     }
 }
