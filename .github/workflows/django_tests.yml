@@ -14,7 +14,6 @@ jobs:
     services:
       postgres:
         image: postgis/postgis:latest
-        hostname: postgres
         env:
           POSTGRES_PASSWORD: 123
           POSTGRES_USER: places_remember_user
