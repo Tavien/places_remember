@@ -3,7 +3,6 @@ version: '3.9'
 services:
   postgres_db:
     image: postgis/postgis:latest
-    restart: always
     hostname: postgres
     volumes:
       - postgres:/var/lib/postgresql/data
@@ -16,8 +15,6 @@ services:
     build:
       context: ./places_remember_back
       dockerfile: Dockerfile
-    depends_on:
-      - postgres_db
     volumes:
       - .:/usr/src/places_remember
     command: >
@@ -30,6 +27,9 @@ services:
               "
     ports:
       - 8000:8000
+    depends_on:
+      - postgres_db
+    restart: always
 
 volumes:
   postgres:
