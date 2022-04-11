@@ -4,7 +4,7 @@ services:
   postgres:
     restart: unless-stopped
     image: postgis/postgis:latest
-
+    hostname: postgres
     volumes:
       - postgres:/var/lib/postgresql/data
     environment:
@@ -15,7 +15,8 @@ services:
       context: ./places_remember_back
       dockerfile: Dockerfile
     command: >
-      sh -c   "python3 manage.py makemigrations &&
+      sh -c   "python manage.py wait_for_db &&
+              python3 manage.py makemigrations &&
               python3 manage.py migrate &&
               coverage run manage.py test &&
               coverage report &&
