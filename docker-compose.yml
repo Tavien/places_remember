@@ -28,10 +28,6 @@ services:
     volumes:
       - postgres:/var/lib/postgresql/data
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_PASSWORD: 123
       POSTGRES_USER: places_remember_user
       POSTGRES_DB: places_remember_db
-
-volumes:
-  postgres:
