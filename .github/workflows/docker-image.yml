@@ -17,11 +17,3 @@ jobs:
     - name: Build the Docker image
       run: docker-compose up --build
 
-  linter:
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Lint Code Base
-      - uses: actions/checkout@v3
-      - uses: docker://github/super-linter:v2.1.0
