@@ -43,3 +43,5 @@ jobs:
         coverage run manage.py test
         coverage report
         coveralls
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
