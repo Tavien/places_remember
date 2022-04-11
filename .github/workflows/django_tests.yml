@@ -36,6 +36,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run tests
       run: |
+        sudo apt install libgdal-dev
         cd places_remember_back/
         python manage.py makemigrations
         python manage.py migrate
