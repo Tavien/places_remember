@@ -14,19 +14,19 @@ docker-compose up --build
 
 ### Приложение использует:
 
--Python 3.9
--Django 4.0.3
--PostgreSQL 13.6 + Postgis
--Docker, Docker-compose
--GitHub Actions (unit test)
--Coverage + Coveralls
--Flake8
+- Python 3.9
+- Django 4.0.3
+- PostgreSQL 13.6 + Postgis
+- Docker, Docker-compose
+- GitHub Actions (unit test)
+- Coverage + Coveralls
+- Flake8
 
 ### Функции приложения:
 
--Аутентификация с помощью VK
--Создание профиля пользователя: аватар, имя и фамилия подгружаются из VK
--Пользователю доступно просмотр, создание, редактирование и удаление воспоминаний
+- Аутентификация с помощью VK
+- Создание профиля пользователя: аватар, имя и фамилия подгружаются из VK
+- Пользователю доступно просмотр, создание, редактирование и удаление воспоминаний
 
 ```
 http://0.0.0.0:8000/admin/
