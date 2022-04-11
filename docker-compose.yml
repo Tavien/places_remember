@@ -11,7 +11,7 @@ services:
       POSTGRES_USER: places_remember_user
       POSTGRES_DB: places_remember_db
 
-  django:
+  django_coverage:
     build:
       context: ./places_remember_back
       dockerfile: Dockerfile
@@ -23,6 +23,23 @@ services:
               python3 manage.py migrate &&
               coverage run manage.py test &&
               coverage report &&
+              "
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres_db
+    restart: always
+
+  django_runserver:
+    build:
+      context: ./places_remember_back
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/places_remember
+    command: >
+      sh -c   "
+              python3 manage.py makemigrations &&
+              python3 manage.py migrate &&
               python3 manage.py runserver 0.0.0.0:8000
               "
     ports:
