@@ -1,6 +1,11 @@
 import os
 from pathlib import Path
 
+import environ
+
+env = environ.Env()
+env.read_env()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -108,7 +113,7 @@ DATABASES = {
         'NAME': 'places_remember_db',
         'USER': 'places_remember_user',
         'PASSWORD': '123',
-        'HOST': 'postgres',
+        'HOST': env.str("POSTGRES_HOST", default="postgres"),
         'PORT': '5432'
     }
 }
