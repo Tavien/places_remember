@@ -1,0 +1,29 @@
+version: '2.1'
+
+services:
+  db:
+    image: postgis/postgis:latest
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: 123
+      POSTGRES_USER: places_remember_user
+      POSTGRES_DB: places_remember_db
+  django:
+    build:
+      context: ./places_remember_back
+      dockerfile: Dockerfile
+    command: >
+      sh -c   "python3 manage.py makemigrations &&
+               python3 manage.py migrate &&
+               python3 manage.py runserver 0.0.0.0:8000
+              "
+    volumes:
+      - .:/usr/src/places_remember
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
+volumes:
+  pg_data:
