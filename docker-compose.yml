@@ -19,7 +19,7 @@ services:
               coverage run manage.py test &&
               coverage report &&
               python3 manage.py runserver 0.0.0.0:8000
-              "
+             "
     volumes:
       - .:/usr/src/places_remember
     ports:
