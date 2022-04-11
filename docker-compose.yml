@@ -22,8 +22,7 @@ services:
               python3 manage.py makemigrations &&
               python3 manage.py migrate &&
               coverage run manage.py test &&
-              coverage report &&
-              python3 manage.py runserver 0.0.0.0:8000
+              coverage report
               "
     ports:
       - 8000:8000
