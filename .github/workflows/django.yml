@@ -10,21 +10,38 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.7, 3.8, 3.9]
+
+    services:
+      postgres:
+        image: postgis/postgis:latest
+        env:
+          POSTGRES_PASSWORD: 123
+          POSTGRES_USER: places_remember_user
+          POSTGRES_DB: places_remember_db
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python 3.9
       uses: actions/setup-python@v3
       with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install Dependencies
+        python-version: 3.9
+
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Run Tests
+    - name: postgis prerequisites
+      run: apt-get update && apt-get -y install --no-install-recommends \
+            build-essential \
+            python3 python3-setuptools python3-pip \
+            postgresql-13 postgresql-client-13 \
+            postgis postgresql-13-postgis-3 postgresql-13-postgis-3-scripts \
+            libproj-dev proj-data python3-gdal proj-bin libgeos-dev gdal-bin
+    - name: Run tests
       run: |
-        python manage.py test
+        python manage.py makemigrations
+        python manage.py migrate
+        coverage run manage.py test
