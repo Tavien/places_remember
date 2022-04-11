@@ -1,3 +1,9 @@
 from django.contrib import admin
+from django.contrib.gis.admin import OSMGeoAdmin
 
-# Register your models here.
+from remembers.models import RemembersModel
+
+
+@admin.register(RemembersModel)
+class ShopAdmin(OSMGeoAdmin):
+    pass
