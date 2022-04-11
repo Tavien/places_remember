@@ -42,6 +42,6 @@ jobs:
         python manage.py migrate
         coverage run manage.py test
         coverage report
-        coveralls
+        coveralls --service=github
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
