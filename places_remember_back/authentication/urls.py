@@ -1,8 +1,8 @@
+from django.contrib.auth import views as auth_views
 from django.urls import path, include
 
 
 urlpatterns = [
-    path('', include('djoser.urls')),
-    path('', include('djoser.urls.jwt')),
-    path('', include('djoser.social.urls')),
+    path('social-auth/', include('social_django.urls', namespace="social")),
+    path("logout/", auth_views.LogoutView.as_view(), name="logout"),
 ]

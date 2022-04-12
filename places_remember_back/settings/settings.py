@@ -1,5 +1,4 @@
 import os
-from datetime import timedelta
 from pathlib import Path
 
 
@@ -26,9 +25,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_gis',
     'social_django',
-    'djoser',
-    'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist',
 
     'remembers',
     'users',
@@ -61,14 +57,6 @@ SOCIAL_AUTH_PIPELINE = (
     'users.pipeline.get_avatar',
 )
 
-SIMPLE_JWT = {
-    'AUTH_HEADER_TYPES': ('JWT',),
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-    'AUTH_TOKEN_CLASSES': (
-        'rest_framework_simplejwt.tokens.AccessToken',
-    )
-}
 
 DJOSER = {
     'SOCIAL_AUTH_TOKEN_STRATEGY': 'djoser.social.token.jwt.TokenStrategy',
@@ -76,8 +64,6 @@ DJOSER = {
     'SERIALIZERS': {
         'user_create': 'users.serializers.UserSerializer',
         'user': 'users.serializers.UserSerializer',
-        'current_user': 'users.serializers.UserSerializer',
-        'user_delete': 'djoser.serializers.UserSerializer',
     }
 }
 
@@ -99,7 +85,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ROOT_URLCONF = 'settings.urls'
 
 MIDDLEWARE = [
-    'social_django.middleware.SocialAuthExceptionMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -121,8 +106,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends',
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect'
             ],
         },
     },
@@ -152,11 +135,9 @@ USE_TZ = True
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
-        'rest_framework.permissions.IsAuthenticated'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.parsers.JSONParser',
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
 
