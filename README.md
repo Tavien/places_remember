@@ -9,6 +9,7 @@ Here you can store memories and impressions of the places visited
 - Запустите проект с помощью следующих команд:
 ```
 git clone https://github.com/Tavien/places_remember.git
+cd places_remember/
 docker-compose up --build
 ```
 
