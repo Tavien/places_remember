@@ -22,6 +22,9 @@ docker-compose up --build
 - GitHub Actions (unit test)
 - Coverage + Coveralls
 
+- React
+- Bootstrap
+
 ### Функции приложения:
 
 - Аутентификация с помощью VK
