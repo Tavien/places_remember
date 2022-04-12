@@ -44,7 +44,6 @@ SOCIAL_AUTH_VK_OAUTH2_KEY = '8127071'
 SOCIAL_AUTH_VK_OAUTH2_SECRET = 'tA5OkdX0YYPdWU9raTAM'
 
 SOCIAL_AUTH_PIPELINE = (
-
     'social_core.pipeline.social_auth.social_details',
     'social_core.pipeline.social_auth.social_uid',
     'social_core.pipeline.social_auth.auth_allowed',
