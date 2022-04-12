@@ -21,7 +21,6 @@ docker-compose up --build
 - Docker, Docker-compose
 - GitHub Actions (unit test)
 - Coverage + Coveralls
-- Flake8
 
 ### Функции приложения:
 
