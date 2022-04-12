@@ -1,7 +1,7 @@
 # places_remember
 Here you can store memories and impressions of the places visited
 
-[![Passing](https://github.com/Tavien/places_remember/actions/workflows/django_tests.yml/badge.svg?branch=master)](https://github.com/Tavien/places_remember/actions/workflows/django_tests.yml)
+![Passing](https://github.com/Tavien/places_remember/actions/workflows/django_tests.yml/badge.svg?event=push)
 [![Coverage Status](https://coveralls.io/repos/github/Tavien/places_remember/badge.svg?branch=master)](https://coveralls.io/github/Tavien/places_remember?branch=master)
 
 ### Порядок установки:
@@ -9,6 +9,7 @@ Here you can store memories and impressions of the places visited
 - Запустите проект с помощью следующих команд:
 ```
 git clone https://github.com/Tavien/places_remember.git
+cd places_remember/
 docker-compose up --build
 ```
 
@@ -20,7 +21,6 @@ docker-compose up --build
 - Docker, Docker-compose
 - GitHub Actions (unit test)
 - Coverage + Coveralls
-- Flake8
 
 ### Функции приложения:
 
