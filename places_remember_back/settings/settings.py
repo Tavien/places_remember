@@ -106,10 +106,10 @@ WSGI_APPLICATION = 'settings.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'places_remember_db',
-        'USER': 'places_remember_user',
-        'PASSWORD': '123',
-        'HOST': 'postgres',
+        'NAME': "places_remember_db",
+        'USER': "places_remember_user",
+        'PASSWORD': "123",
+        'HOST': "0.0.0.0",
         'PORT': '5432'
     }
 }

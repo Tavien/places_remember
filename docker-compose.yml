@@ -1,11 +1,15 @@
-version: '3.9'
+version: '2.1'
 
 services:
-  postgres_db:
+  db:
     image: postgis/postgis:latest
-    hostname: postgres
+    hostname: '0.0.0.0'
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: 123
+      POSTGRES_USER: places_remember_user
+      POSTGRES_DB: places_remember_db
 
   django_coverage:
     build:
@@ -22,8 +26,8 @@ services:
     ports:
       - 8000:8000
     depends_on:
-      - postgres_db
-    restart: always
+      - db
+    restart: on-failure
 
 volumes:
-  postgres:
+  postgres_data:
