@@ -57,16 +57,6 @@ SOCIAL_AUTH_PIPELINE = (
     'users.pipeline.get_avatar',
 )
 
-
-DJOSER = {
-    'SOCIAL_AUTH_TOKEN_STRATEGY': 'djoser.social.token.jwt.TokenStrategy',
-    'SOCIAL_AUTH_ALLOWED_REDIRECT_URIS': ['http://0.0.0.0:8000/api/vk'],
-    'SERIALIZERS': {
-        'user_create': 'users.serializers.UserSerializer',
-        'user': 'users.serializers.UserSerializer',
-    }
-}
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -133,12 +123,12 @@ USE_I18N = True
 USE_TZ = True
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
+    'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
-    ],
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.parsers.JSONParser',
     ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    )
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
