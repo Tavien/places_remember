@@ -1,6 +1,9 @@
 from users.models import User
 from django.contrib.gis.db import models
 
+"""
+new comment
+"""
 
 class RemembersModel(models.Model):
     """
